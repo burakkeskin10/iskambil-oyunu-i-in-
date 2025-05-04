@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Foto ve Video</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+    #photo, #video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    #video {
+      display: none;
+    }
+    /* Resmin üzerine yazıyı yerleştirmek için stil */
+    #startText {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #startText:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <img id="photo" src="resim.jpeg" alt="Fotoğraf">
+  <video id="video" src="video.mp4" playsinline></video>
+
+  <!-- Saydam yazı -->
+  <div id="startText">Burak Keskin</div>
+
+  <script>
+    // Saydam yazıya tıklandığında video oynatma
+    document.getElementById("startText").addEventListener("click", function() {
+      document.getElementById("photo").style.display = "none";
+      let video = document.getElementById("video");
+      video.style.display = "block";
+      video.play();
+      // Yazıyı gizle
+      document.getElementById("startText").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
